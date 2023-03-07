@@ -1,0 +1,63 @@
+/* ========== start main-navbar ========= */
+.navPosition{
+    transform: translateX(-240px);
+}
+nav article:first-child{
+    width: 240px;
+}
+nav article:first-child div p{
+    font-size: 13px;
+}
+nav article:last-child{
+    width: 70px;
+    padding: 8px;
+    background-color: white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+nav a{
+    transition: .3s 0s all linear;
+}
+nav a:hover{
+    color: #ff3d00 !important;
+}
+nav .closed{
+    cursor: pointer;
+}
+/* ========== end main-navbar ========= */
+
+
+/* ========== start section-one ========= */
+.main{
+    width: calc(100% - 50px);
+}
+.main .details{
+    background-color: rgba(255, 255, 255, 0.6);
+    opacity: 0;
+    transform: translateY(50%);
+    transition: .3s 0s all linear;
+}
+.main .imageBox:hover .details{
+    background-color: rgba(255, 255, 255, 0.6);
+    opacity: 1;
+    transform: translateY(0);
+}
+.imageBox,a,.cur{
+    cursor: pointer;
+}
+/* ========== end section-one ========= */
+
+/* ========== start main-two ========= */
+.main input::placeholder{
+    color: #6c757d;
+}
+.main input{
+    text-align: center;
+    color: white !important;
+    box-shadow: 0 0 10px rgb(255 255 255 / 47%) !important;
+}
+
+/* ========== end main-two ========= */
