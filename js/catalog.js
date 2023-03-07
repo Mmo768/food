@@ -1,5 +1,6 @@
 //========== import =========
 import {Header} from "./Header.module.js"
+import {apperSpinner,hiddenSpinner} from "./main.js"
 
 export class Catalog{
     constructor(nameOfUrl , objKey ,displayOption){
@@ -12,10 +13,11 @@ export class Catalog{
     }
 
     async getData(url,urlWord){
+        apperSpinner();
         let data = await fetch(url);
         let dataJson = await data.json();
         this.display(dataJson[urlWord]);
-
+        hiddenSpinner();
     };
 
     display(data){

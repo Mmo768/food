@@ -1,7 +1,11 @@
+import {apperSpinner,hiddenSpinner} from "./main.js"
+
 export class Contact{
     constructor(){
 
+        apperSpinner();
         this.displayPage();
+        hiddenSpinner();
         this.inputs = document.querySelectorAll("input");
 
 

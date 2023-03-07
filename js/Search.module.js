@@ -3,13 +3,14 @@ export class Search{
     constructor(){
 
         this.displayPage();
-        document.querySelectorAll(".main input")[0].addEventListener('input',(e)=>{
-            this.getData(`https://www.themealdb.com/api/json/v1/1/search.php?s=${e.target.value}`,"meals");
+        this.place = document.querySelector(".main .row.g-4.mt-5");
+        this.spinner = document.querySelector(".spinner");
 
+        document.querySelectorAll(".main input")[0].addEventListener('input',(e)=>{
+            if(e.target.value !=""){this.getData(`https://www.themealdb.com/api/json/v1/1/search.php?s=${e.target.value.trim()}`,"meals");};
         });
         document.querySelectorAll(".main input")[1].addEventListener('input',(e)=>{
-            this.getData(`https://www.themealdb.com/api/json/v1/1/search.php?f=${e.target.value}`,"meals");
-
+            if(e.target.value !="" && e.target.value.length === 1){this.getData(`https://www.themealdb.com/api/json/v1/1/search.php?f=${e.target.value.trim()}`,"meals");};
         });
     };
 
@@ -27,9 +28,17 @@ export class Search{
     }
 
     async getData(url,urlWord){
+        this.place.innerHTML = "";
+        this.spinner.classList.remove("d-none");
+
         let data = await fetch(url);
         let dataJson = await data.json();
-        this.display(dataJson[urlWord]);
+
+        if(data.status === 200 && dataJson[urlWord] != null){
+            this.display(dataJson[urlWord]);
+        };
+        this.spinner.classList.add("d-none");
+
     };
 
     display(data){
@@ -45,7 +54,7 @@ export class Search{
         </div>`;
         };
 
-    document.querySelector(".main .row.g-4.mt-5").innerHTML = res;
+    this.place.innerHTML = res;
     this.next();
     
     };

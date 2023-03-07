@@ -27,7 +27,7 @@
             <!-- ========= start navbar ========= -->
             <nav class="position-fixed top-0 z-3 bottom-0 start-0 d-flex navPosition transition">
                 <article class="bg-black h-100 p-4 d-flex flex-column justify-content-between">
-                    <ul>
+                    <ul class="overflow-hidden">
                         <li>
                             <a class="text-white lh-25 fw-400 py-3" my-href="Search">Search</a>
                         </li>
@@ -70,7 +70,12 @@
             <!-- ========= end navbar ========= -->
 
             <!-- ========= start first section  ========= -->
-            <section class="main header pt-5">
+            <section class="main header pt-5 position-relative">
+            <!-- ========= loading spinner ========= --> 
+            <div class="spinner d-none position-fixed z-2 top-0 bottom-0 end-0 d-flex justify-content-center align-items-center vh-100">
+                <div class="loader"></div>          
+            </div> 
+            <!-- ========= loading spinner ========= -->  
                     <div class="box container" >
                         <div class="row g-4">
 
@@ -78,11 +83,11 @@
                         </div>
                     </div>
             </section>
-            <!-- ========= end first section ========= -->            
+            <!-- ========= end first section ========= -->                    
 
         </div>
     </section>
-
+ 
 
 
 
