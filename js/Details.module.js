@@ -14,7 +14,6 @@ export class Details{
         let dataJson = await data.json();
         this.display(dataJson[urlWord][0]);
         hiddenSpinner();
-
     };
 
     display(data){
@@ -33,12 +32,7 @@ export class Details{
                 <li class="fs-25 lh-30 fw-500">Category : <span class="fw-300">${data.strCategory}</span></li>
                 <li class="fs-25 lh-30 fw-500">Recipes : 
                     <ul>
-                        <li class="d-inline-block bg-success rounded-1 p-2 my-3 fw-300 fs-15 lh-15">2 ${data.strIngredient1}</li>
-                        <li  class="d-inline-block bg-success rounded-1 p-2 my-3 fw-300 fs-15 lh-15">2 ${data.strIngredient2}</li>
-                        <li  class="d-inline-block bg-success rounded-1 p-2 my-3 fw-300 fs-15 lh-15">${data.strIngredient3}</li>
-                        <li  class="d-inline-block bg-success rounded-1 p-2 my-3 fw-300 fs-15 lh-15">1 ${data.strIngredient4}</li>
-                        <li  class="d-inline-block bg-success rounded-1 p-2 my-3 fw-300 fs-15 lh-15">${data.strIngredient5}</li>
-                        <li  class="d-inline-block bg-success rounded-1 p-2 my-3 fw-300 fs-15 lh-15">${data.strIngredient6}</li>
+                    ${this.ul(data)}
                     </ul>
                 </li>
                 <li class="fs-25 lh-30 fw-500">Tags : 
@@ -56,4 +50,17 @@ export class Details{
     </div>`;
     document.querySelector(".main.header .row").innerHTML = res;
     }; 
+
+    ul(data){
+        let res ="";
+        for(let i=1 ; i<20 ;i++){
+            if(data[`strIngredient${i}`] != ""){
+                res += `<li class="d-inline-block bg-success rounded-1 p-2 mx-1 my-3 fw-300 fs-15 lh-15">2 ${data[`strIngredient${i}`]}</li>`;
+            }else{
+                break;
+            }
+        }
+        return res;
+    }
+
 }
