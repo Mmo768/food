@@ -1,7 +1,7 @@
 //========== import =========
 import {Header} from "./Header.module.js"
 import {Search} from "./Search.module.js"
-import {Catalog} from "./catalog.js"
+import {Catalog} from "./catalog.module.js"
 import {Contact} from "./contact.js"
 
 
@@ -21,30 +21,18 @@ for(let i=0 ; i<linksBtn.length ;i++){
     linksBtn[i].addEventListener('click',function(){
         if(this.getAttribute("my-href") == "Search"){
             let search = new Search();
-            colseBtn.click();
-            document.querySelector("a[my-href].active")?.classList.remove("active");
-            this.classList.add("active");
         }else if(this.getAttribute("my-href") == "Categories"){
             let catalog = new Catalog(`https://www.themealdb.com/api/json/v1/1/categories.php`,"categories","catalog");
-            colseBtn.click();
-            document.querySelector("a[my-href].active")?.classList.remove("active");
-            this.classList.add("active");
         }else if(this.getAttribute("my-href") == "Area"){
             let area = new Catalog(`https://www.themealdb.com/api/json/v1/1/list.php?a=list`,"meals","Area");
-            colseBtn.click();
-            document.querySelector("a[my-href].active")?.classList.remove("active");
-            this.classList.add("active");
         }else if(this.getAttribute("my-href") == "Ingredients"){
             let irgument = new Catalog(`https://www.themealdb.com/api/json/v1/1/list.php?i=list`,"meals","irgument");
-            colseBtn.click();
-            document.querySelector("a[my-href].active")?.classList.remove("active");
-            this.classList.add("active");
         }else if(this.getAttribute("my-href") == "ContactUs"){
             let contact = new Contact();
-            colseBtn.click();
-            document.querySelector("a[my-href].active")?.classList.remove("active");
-            this.classList.add("active");
-        }
+        };
+        colseBtn.click();
+        document.querySelector("a[my-href].active")?.classList.remove("active");
+        this.classList.add("active");
     });
 };
 

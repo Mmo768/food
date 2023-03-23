@@ -25,7 +25,7 @@ export class Catalog{
         if(this.displayOption == "catalog"){
             for(let i=0 ; i< data.length ;i++){
                 res +=`<div class="col-md-6 col-lg-4 col-xl-3">
-                <div class="imageBox position-relative overflow-hidden cur" name="${data[i].strCategory}">
+                <div class="imageBox position-relative rounded-2 overflow-hidden cur" name="${data[i].strCategory}">
                     <img class="w-100" src="${data[i].strCategoryThumb}" alt="">
                     <div class="details position-absolute bottom-0 start-0 w-100 h-100 d-flex justify-content-start align-items-center p-4">
                         <p class="m-0 fs-20 lh-30 fw-600 text-dark">${data[i].strCategory}</p>
